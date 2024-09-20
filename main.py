@@ -19,6 +19,11 @@ right_wall  = pygame.Rect(consts.WINDOW_WIDTH-10,0,10,consts.WINDOW_HEIGHT)
 upper_wall = pygame.Rect(0,0,consts.WINDOW_WIDTH,30)
 
 pygame.init()
+
+#soundeffects
+pygame.mixer.init()
+
+
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 # game loop
@@ -43,15 +48,21 @@ while True:
 
     if ball.x > consts.WINDOW_WIDTH - 10:
         mec.ball_hit_wall()
+        pygame.mixer.music.load(consts.BALL_HIT_WALL)
+        pygame.mixer.music.play()
 
     if ball.x < 10:
         mec.ball_hit_wall()
+        pygame.mixer.music.load(consts.BALL_HIT_WALL)
+        pygame.mixer.music.play()
 
     if ball.colliderect(upper_wall):
         mec.ball_dy = -mec.ball_dy
 
     if ball.colliderect(paddle) and mec.ball_dy > 0:
         mec.ball_hit_paddle(paddle.x,ball.x)
+        pygame.mixer.music.load(consts.BALL_HIT_PADDLE)
+        pygame.mixer.music.play()
 
 
 
