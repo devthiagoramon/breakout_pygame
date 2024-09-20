@@ -3,7 +3,7 @@ import mechanics as mec
 import constants as consts
 from random import randrange as rand
 
-from lpc2024.atividade004.breakout_pygame.mechanics import ball_dx, ball_hit_paddle
+from mechanics import ball_dx, ball_hit_paddle
 
 #paddle
 paddle = pygame.Rect(consts.WINDOW_WIDTH // 2 - consts.PADDLE_WIDTH // 2,
