@@ -3,7 +3,7 @@ import mechanics as mec
 import constants as consts
 from random import randrange as rand
 
-from lpc2024.atividade004.breakout_pygame.mechanics import ball_dx
+from lpc2024.atividade004.breakout_pygame.mechanics import ball_dx, ball_hit_paddle
 
 #paddle
 paddle = pygame.Rect(consts.WINDOW_WIDTH // 2 - consts.PADDLE_WIDTH // 2,
@@ -37,7 +37,7 @@ while True:
 
     #ball movement
     ball.x += consts.BALL_SPEED * mec.ball_dx
-    #ball.y += consts.BALL_SPEED * mec.ball_dy
+    ball.y += consts.BALL_SPEED * mec.ball_dy
 
     #ball collision with walls
 
@@ -47,9 +47,14 @@ while True:
     if ball.x < 10:
         mec.ball_hit_wall()
 
+    if ball.colliderect(upper_wall):
+        mec.ball_dy = -mec.ball_dy
 
-    #if ball.y < consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT:
-        #if ball.x + 10
+    if ball.colliderect(paddle) and mec.ball_dy > 0:
+        mec.ball_hit_paddle(paddle.x,ball.x)
+
+
+
 
     # controls
 

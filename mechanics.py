@@ -1,13 +1,14 @@
-import main as main
+
 import constants as consts
 
-ball_dx = consts.BALL_SPEED
-ball_dy = consts.BALL_SPEED
+ball_dx = 1
+ball_dy = 1
 
 
 def ball_hit_wall():
     global ball_dx
     ball_dx = ball_dx * -1
+
 
 
 def ball_hit_paddle(paddle_x, ball_x):
