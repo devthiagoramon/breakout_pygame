@@ -17,3 +17,8 @@ PADDLE_SPEED = 10
 
 # BALL
 BALL_SPEED = 6
+
+# SOUND EFFECTS
+BALL_HIT_WALL = './sfx/ball_hit_wall.wav'
+BALL_HIT_PADDLE ='./sfx/ball_hit_paddle.wav'
+BALL_HIT_BLOCK = './sfx/ball_hit_block.wav'
