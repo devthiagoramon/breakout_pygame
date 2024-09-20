@@ -58,14 +58,17 @@ while True:
 
     if ball.colliderect(upper_wall):
         mec.ball_dy = -mec.ball_dy
+        pygame.mixer.music.load(consts.BALL_HIT_WALL)
+        pygame.mixer.music.play()
 
     if ball.colliderect(paddle) and mec.ball_dy > 0:
         mec.ball_hit_paddle(paddle.x,ball.x)
         pygame.mixer.music.load(consts.BALL_HIT_PADDLE)
         pygame.mixer.music.play()
 
-
-
+    if ball.y > consts.WINDOW_HEIGHT:
+        ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2, ball_size,
+                           ball_size)
 
     # controls
 
