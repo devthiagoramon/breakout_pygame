@@ -1,10 +1,18 @@
 import pygame
 import mechanics as mec
 import constants as consts
+from random import randrange as rand
 
+#paddle
 paddle = pygame.Rect(consts.WINDOW_WIDTH // 2 - consts.PADDLE_WIDTH // 2,
                      consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20, consts.PADDLE_WIDTH,
                      consts.PADDLE_HEIGHT)
+#ball
+ball_size = 10
+ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size),consts.WINDOW_HEIGHT//2,ball_size,ball_size)
+ball_dx = -1
+ball_dy = -1
+
 
 pygame.init()
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
@@ -17,7 +25,8 @@ while True:
     screen.fill(consts.BLACK)
 
     # draw
-    pygame.draw.rect(screen, pygame.Color('blue'), paddle)
+    pygame.draw.rect(screen, consts.BLUE, paddle)
+    pygame.draw.rect(screen, consts.WHITE, ball)
 
     # controls
 
