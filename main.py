@@ -17,14 +17,14 @@ ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size),consts.WINDO
 left_wall = pygame.Rect(0,0,10,consts.WINDOW_HEIGHT)
 right_wall  = pygame.Rect(consts.WINDOW_WIDTH-10,0,10,consts.WINDOW_HEIGHT)
 upper_wall = pygame.Rect(0,0,consts.WINDOW_WIDTH,30)
-left_red_block = pygame.Rect(0,50,10,45)
-right_red_block = pygame.Rect(consts.WINDOW_WIDTH-10,50,10,45)
-left_orange_block = pygame.Rect(0,95,10,45)
-right_orange_block = pygame.Rect(consts.WINDOW_WIDTH-10,95,10,45)
-left_green_block = pygame.Rect(0,140,10,45)
-right_green_block = pygame.Rect(consts.WINDOW_WIDTH-10,140,10,45)
-left_yellow_block = pygame.Rect(0,185,10,45)
-right_yellow_block = pygame.Rect(consts.WINDOW_WIDTH-10,185,10,45)
+left_red_block = pygame.Rect(0,100,10,45)
+right_red_block = pygame.Rect(consts.WINDOW_WIDTH-10,100,10,45)
+left_orange_block = pygame.Rect(0,145,10,45)
+right_orange_block = pygame.Rect(consts.WINDOW_WIDTH-10,145,10,45)
+left_green_block = pygame.Rect(0,185,10,45)
+right_green_block = pygame.Rect(consts.WINDOW_WIDTH-10,185,10,45)
+left_yellow_block = pygame.Rect(0,230,10,45)
+right_yellow_block = pygame.Rect(consts.WINDOW_WIDTH-10,230,10,45)
 left_blue_block= pygame.Rect(0,consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20,10,consts.PADDLE_HEIGHT)
 right_blue_block = pygame.Rect(consts.WINDOW_WIDTH-10,consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20,10,consts.PADDLE_HEIGHT)
 
@@ -99,30 +99,30 @@ while True:
     if key[pygame.K_RIGHT] and paddle.right < consts.WINDOW_WIDTH:
         paddle.right += consts.PADDLE_SPEED
 
-    # Blocos
+    # red
 
-    #Vermelhos
+    # red
     desenho_posicao_x = 10
     desenho_posicao_y = 100
     for i in range(1,16):
         pygame.draw.rect(screen, (consts.RED), (desenho_posicao_x, desenho_posicao_y, 50, 15))
         pygame.draw.rect(screen, (consts.RED), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
         desenho_posicao_x += 55
-    #Amarelo Queimado
+    # ocre
     desenho_posicao_x = 10
     desenho_posicao_y = 140
     for i in range(1, 16):
         pygame.draw.rect(screen, (206, 176, 9), (desenho_posicao_x, desenho_posicao_y, 50, 15))
         pygame.draw.rect(screen, (206, 176, 9), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
         desenho_posicao_x += 55
-    #Verde
+    # green
     desenho_posicao_x = 10
     desenho_posicao_y = 180
     for i in range(1, 16):
         pygame.draw.rect(screen, (consts.GREEN), (desenho_posicao_x, desenho_posicao_y, 50, 15))
         pygame.draw.rect(screen, (consts.GREEN), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
         desenho_posicao_x += 55
-    #Amarelo
+    # yellow
     desenho_posicao_x = 10
     desenho_posicao_y = 220
     for i in range(1, 16):
