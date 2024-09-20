@@ -11,12 +11,15 @@ def ball_hit_wall():
 
 
 def ball_hit_paddle(paddle_x, ball_x):
-    global ball_dy
+    global ball_dy, ball_dx
     ball_dy = ball_dy * -1
-    hit_paddle_position = paddle_x + main.paddle_width
+    ball_dx = ball_dx * -1
+    middle_paddle = (paddle_x + consts.PADDLE_WIDTH) // 2
 
-
-
-
-
+    if ball_x < middle_paddle:
+        dy_velocity_updated = abs(ball_x / middle_paddle)
+        ball_dy += dy_velocity_updated
+    if ball_x > middle_paddle:
+        dy_velocity_updated = abs(middle_paddle / ball_x)
+        ball_dy += dy_velocity_updated
 
