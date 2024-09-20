@@ -99,6 +99,38 @@ while True:
     if key[pygame.K_RIGHT] and paddle.right < consts.WINDOW_WIDTH:
         paddle.right += consts.PADDLE_SPEED
 
+    # Blocos
+
+    #Vermelhos
+    desenho_posicao_x = 10
+    desenho_posicao_y = 100
+    for i in range(1,16):
+        pygame.draw.rect(screen, (consts.RED), (desenho_posicao_x, desenho_posicao_y, 50, 15))
+        pygame.draw.rect(screen, (consts.RED), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
+        desenho_posicao_x += 55
+    #Amarelo Queimado
+    desenho_posicao_x = 10
+    desenho_posicao_y = 140
+    for i in range(1, 16):
+        pygame.draw.rect(screen, (206, 176, 9), (desenho_posicao_x, desenho_posicao_y, 50, 15))
+        pygame.draw.rect(screen, (206, 176, 9), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
+        desenho_posicao_x += 55
+    #Verde
+    desenho_posicao_x = 10
+    desenho_posicao_y = 180
+    for i in range(1, 16):
+        pygame.draw.rect(screen, (consts.GREEN), (desenho_posicao_x, desenho_posicao_y, 50, 15))
+        pygame.draw.rect(screen, (consts.GREEN), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
+        desenho_posicao_x += 55
+    #Amarelo
+    desenho_posicao_x = 10
+    desenho_posicao_y = 220
+    for i in range(1, 16):
+        pygame.draw.rect(screen, (consts.YELLOW), (desenho_posicao_x, desenho_posicao_y, 50, 15))
+        pygame.draw.rect(screen, (consts.YELLOW), (desenho_posicao_x, desenho_posicao_y + 20, 50, 15))
+        desenho_posicao_x += 55
+
+
     # update screen
 
     pygame.display.flip()
