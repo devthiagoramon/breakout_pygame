@@ -10,6 +10,12 @@ def ball_hit_wall():
     ball_dx = ball_dx * -1
 
 
+def ball_hit_ceiling():
+    global ball_dy, ball_dx
+    ball_dy = ball_dy * -1
+    ball_dx = ball_dx * -1
+
+
 def ball_hit_paddle(paddle_x, ball_x):
     global ball_dy, ball_dx
     ball_dy = ball_dy * -1
