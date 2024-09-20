@@ -1,46 +1,33 @@
 import pygame
+import mechanics as mec
+import constants as consts
 
-WINDOW_WIDTH,WINDOW_HEIGHT =1280,720
-fps = 60
-
-#creating paddle with rect
-paddle_width = 330
-paddle_height = 35
-paddle_speed = 15
-paddle = pygame.Rect(WINDOW_WIDTH//2 - paddle_width//2,WINDOW_HEIGHT - paddle_height -10,paddle_width,paddle_height)
-
+paddle = pygame.Rect(consts.WINDOW_WIDTH // 2 - consts.PADDLE_WIDTH // 2,
+                     consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20, consts.PADDLE_WIDTH,
+                     consts.PADDLE_HEIGHT)
 
 pygame.init()
-screen = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
+screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 clock = pygame.time.Clock()
-
-
-#game loop
+# game loop
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-    screen.fill((0,0,0))
+    screen.fill(consts.BLACK)
 
+    # draw
+    pygame.draw.rect(screen, pygame.Color('blue'), paddle)
 
-    #draw
-    pygame.draw.rect(screen,pygame.Color('blue'),paddle)
-
-
-    #controls
+    # controls
 
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT] and paddle.left > 0:
-        paddle.left -= paddle_speed
-    if key[pygame.K_RIGHT] and paddle.right < WINDOW_WIDTH:
-        paddle.right += paddle_speed
+        paddle.left -= consts.PADDLE_SPEED
+    if key[pygame.K_RIGHT] and paddle.right < consts.WINDOW_WIDTH:
+        paddle.right += consts.PADDLE_SPEED
 
-
-
-
-
-    #update screen
+    # update screen
 
     pygame.display.flip()
-    clock.tick(fps)
-
+    clock.tick(consts.FPS)
