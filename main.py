@@ -17,6 +17,16 @@ ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size),consts.WINDO
 left_wall = pygame.Rect(0,0,10,consts.WINDOW_HEIGHT)
 right_wall  = pygame.Rect(consts.WINDOW_WIDTH-10,0,10,consts.WINDOW_HEIGHT)
 upper_wall = pygame.Rect(0,0,consts.WINDOW_WIDTH,30)
+left_red_block = pygame.Rect(0,50,10,50)
+right_red_block = pygame.Rect(consts.WINDOW_WIDTH-10,50,10,50)
+left_orange_block = pygame.Rect(0,100,10,50)
+right_orange_block = pygame.Rect(consts.WINDOW_WIDTH-10,100,10,50)
+left_green_block = pygame.Rect(0,150,10,50)
+right_green_block = pygame.Rect(consts.WINDOW_WIDTH-10,150,10,50)
+left_yellow_block = pygame.Rect(0,200,10,50)
+right_yellow_block = pygame.Rect(consts.WINDOW_WIDTH-10,200,10,50)
+left_blue_block= pygame.Rect(0,consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20,10,consts.PADDLE_HEIGHT)
+right_blue_block = pygame.Rect(consts.WINDOW_WIDTH-10,consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20,10,consts.PADDLE_HEIGHT)
 
 pygame.init()
 
@@ -39,6 +49,17 @@ while True:
     pygame.draw.rect(screen, consts.WHITE, left_wall)
     pygame.draw.rect(screen, consts.WHITE, right_wall)
     pygame.draw.rect(screen, consts.WHITE, upper_wall)
+    pygame.draw.rect(screen, consts.RED, left_red_block)
+    pygame.draw.rect(screen, consts.RED, right_red_block)
+    pygame.draw.rect(screen, consts.ORANGE, left_orange_block)
+    pygame.draw.rect(screen, consts.ORANGE, right_orange_block)
+    pygame.draw.rect(screen ,consts.GREEN, left_green_block)
+    pygame.draw.rect(screen, consts.GREEN, right_green_block)
+    pygame.draw.rect(screen, consts.YELLOW,left_yellow_block)
+    pygame.draw.rect(screen, consts.YELLOW, right_yellow_block)
+    pygame.draw.rect(screen, consts.BLUE, left_blue_block)
+    pygame.draw.rect(screen, consts.BLUE, right_blue_block)
+
 
     #ball movement
     ball.x += consts.BALL_SPEED * mec.ball_dx
