@@ -1,7 +1,7 @@
 import constants as consts
 
-ball_dx = consts.BALL_SPEED
-ball_dy = consts.BALL_SPEED
+ball_dx = 1
+ball_dy = 1
 actual_max_speed = consts.MAX_BALL_SPEED_LEVEL_1
 actual_paddle_width = consts.PADDLE_WIDTH_LEVEL_1
 ball_is_ghost = False
@@ -26,7 +26,6 @@ def ball_hit_paddle(paddle_x, ball_x):
     # ball_dx = ball_dx * -1
     middle_paddle = (paddle_x + actual_paddle_width) // 2
     ball_is_ghost = False
-
     if abs(ball_dy) >= actual_max_speed:
         return
     if ball_x < middle_paddle + paddle_x:
@@ -67,5 +66,15 @@ def next_level(level):
 
 def get_paddle_width_by_level():
     return actual_paddle_width
+
+
+def increase_speed_based_on_block (color):
+    global actual_max_speed
+    if color == consts.GREEN:
+        return 1
+    if color == consts.ORANGE:
+        return 1.2
+    if color == consts.RED:
+        return 1.4
 
 

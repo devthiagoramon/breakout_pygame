@@ -5,6 +5,9 @@ import mechanics as mec
 import constants as consts
 from random import randrange as rand
 
+
+
+from lpc2024.atividade004.breakout_pygame.mechanics import increase_speed_based_on_block
 from mechanics import ball_dx, ball_hit_paddle
 
 pygame.init()
@@ -114,6 +117,24 @@ def draw_bricks(array_bricks):
                     and array_bricks[i][j]["visible"] and not mec.ball_is_ghost and not game_idle):
                 array_bricks[i][j]["visible"] = False
                 mec.ball_hit_block()
+                pygame.mixer.music.load(consts.BALL_HIT_BLOCK)
+                if array_bricks[i][j]["color"] == consts.YELLOW:
+                    pygame.mixer.music.play()
+                if array_bricks[i][j]["color"] == consts.GREEN:
+                    pygame.mixer.music.play(loops = 3)
+                    speed_increase = increase_speed_based_on_block(array_bricks[i][j]["color"])
+                    mec.ball_dx += speed_increase
+                    mec.ball_dy += speed_increase
+                if array_bricks[i][j]["color"] == consts.ORANGE:
+                    pygame.mixer.music.play(loops = 7)
+                    speed_increase = increase_speed_based_on_block(array_bricks[i][j]["color"])
+                    mec.ball_dx += speed_increase
+                    mec.ball_dy += speed_increase
+                if array_bricks[i][j]["color"] == consts.RED:
+                    pygame.mixer.music.play(loops= 11)
+                    speed_increase = increase_speed_based_on_block(array_bricks[i][j]["color"])
+                    mec.ball_dx += speed_increase
+                    mec.ball_dy += speed_increase
                 points += array_bricks[i][j]["point"]
                 points_text = font.render(str(points), True, consts.WHITE)
                 bricks_destroyed += 1
@@ -146,7 +167,7 @@ def start_game():
         paddle = pygame.Rect(consts.WINDOW_WIDTH // 2 - mec.get_paddle_width_by_level() // 2,
                              consts.WINDOW_HEIGHT - consts.PADDLE_HEIGHT - 20, mec.get_paddle_width_by_level(),
                              consts.PADDLE_HEIGHT)
-        ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2, ball_size,
+        ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2 + 50, ball_size,
                            ball_size)
 
 
@@ -157,8 +178,9 @@ def reset_game():
     set_all_blocks_visible(bricks_orange)
     set_all_blocks_visible(bricks_green)
     set_all_blocks_visible(bricks_yellow)
-    ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2, ball_size,
+    ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2 + 50, ball_size,
                        ball_size)
+
     paddle = initial_paddle_rect
 
 
@@ -227,8 +249,10 @@ while True:
         pygame.mixer.music.play()
 
     if ball.y > consts.WINDOW_HEIGHT:
-        ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2, ball_size,
+        ball = pygame.Rect(rand(ball_size, consts.WINDOW_WIDTH - ball_size), consts.WINDOW_HEIGHT // 2 + 50, ball_size,
                            ball_size)
+        mec.ball_dx = 1
+        mec.ball_dy = 1
         if lifes == 1:
             game_over()
             lifes -= 1
@@ -240,7 +264,7 @@ while True:
     # controls
 
     key = pygame.key.get_pressed()
-    if key[pygame.K_SPACE]:
+    if key[pygame.K_RETURN]:
         start_game()
     if key[pygame.K_LEFT] and paddle.left > 0:
         paddle.left -= consts.PADDLE_SPEED
