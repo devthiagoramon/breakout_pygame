@@ -71,10 +71,10 @@ def get_paddle_width_by_level():
 def increase_speed_based_on_block (color):
     global actual_max_speed
     if color == consts.GREEN:
-        return 1
+        return 3
     if color == consts.ORANGE:
-        return 1.2
+        return 4
     if color == consts.RED:
-        return 1.4
+        return 5
 
 

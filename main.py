@@ -4,6 +4,7 @@ import pygame
 import mechanics as mec
 import constants as consts
 from random import randrange as rand
+from random import uniform as randun
 
 
 
@@ -122,19 +123,32 @@ def draw_bricks(array_bricks):
                     pygame.mixer.music.play()
                 if array_bricks[i][j]["color"] == consts.GREEN:
                     pygame.mixer.music.play(loops = 3)
-                    speed_increase = increase_speed_based_on_block(array_bricks[i][j]["color"])
-                    mec.ball_dx += speed_increase
-                    mec.ball_dy += speed_increase
+                    rebound_speed = increase_speed_based_on_block(array_bricks[i][j]["color"])
+                    if mec.ball_dx < 0:
+                        mec.ball_dx = -1 * rebound_speed * randun(0.8,1.1)
+                        mec.ball_dy =  rebound_speed * randun(0.8,1.1)
+                    else:
+                        mec.ball_dx = rebound_speed  * randun(0.8,1.1)
+                        mec.ball_dy = rebound_speed  * randun(0.8,1.1)
                 if array_bricks[i][j]["color"] == consts.ORANGE:
                     pygame.mixer.music.play(loops = 7)
-                    speed_increase = increase_speed_based_on_block(array_bricks[i][j]["color"])
-                    mec.ball_dx += speed_increase
-                    mec.ball_dy += speed_increase
+                    rebound_speed = increase_speed_based_on_block(array_bricks[i][j]["color"])
+                    if mec.ball_dx < 0:
+                        mec.ball_dx = -1 * rebound_speed  * randun(0.8,1.1)
+                        mec.ball_dy =  rebound_speed  * randun(0.8,1.1)
+                    else:
+                        mec.ball_dx = rebound_speed  * randun(0.8,1.1)
+                        mec.ball_dy = rebound_speed  * randun(0.8,1.1)
                 if array_bricks[i][j]["color"] == consts.RED:
                     pygame.mixer.music.play(loops= 11)
-                    speed_increase = increase_speed_based_on_block(array_bricks[i][j]["color"])
-                    mec.ball_dx += speed_increase
-                    mec.ball_dy += speed_increase
+                    rebound_speed = increase_speed_based_on_block(array_bricks[i][j]["color"])
+                    if mec.ball_dx < 0:
+                        mec.ball_dx = -1 * rebound_speed  * randun(0.8,1.1)
+                        mec.ball_dy =  rebound_speed  * randun(0.8,1.1)
+                    else:
+                        mec.ball_dx = rebound_speed  * randun(0.8,1.1)
+                        mec.ball_dy = rebound_speed  * randun(0.8,1.1)
+
                 points += array_bricks[i][j]["point"]
                 points_text = font.render(str(points), True, consts.WHITE)
                 bricks_destroyed += 1
@@ -264,6 +278,8 @@ while True:
     # controls
 
     key = pygame.key.get_pressed()
+    if key[pygame.K_ESCAPE]:
+        pygame.quit()
     if key[pygame.K_RETURN]:
         start_game()
     if key[pygame.K_LEFT] and paddle.left > 0:
