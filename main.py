@@ -148,6 +148,7 @@ while True:
         lifes_text = font.render(str(lifes), True, consts.WHITE)
 
     # controls
+
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT] and paddle.left > 0:
         paddle.left -= consts.PADDLE_SPEED
@@ -184,5 +185,6 @@ while True:
     screen.blit(lifes_text, lifes_rect)
 
     # update screen
+
     pygame.display.flip()
     clock.tick(consts.FPS)
