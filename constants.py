@@ -13,14 +13,21 @@ YELLOW = (255, 255, 0)
 ORANGE = (255,165,0)
 
 # PADDLE
-PADDLE_WIDTH, PADDLE_HEIGHT = 120, 20
+PADDLE_WIDTH, PADDLE_HEIGHT = WINDOW_WIDTH, 20
 PADDLE_SPEED = 10
 
+# BRICKS
+BRICK_WIDTH = 48
+BRICK_HEIGHT = 16
+BRICK_SPACING = 6
+BRICK_ROWS = 2
+BRICK_COLS = 14
+
 # BALL
-BALL_SPEED = 3
-MAX_BALL_SPEED = 5
+BALL_SPEED = 2
+MAX_BALL_SPEED = 4
 
 # SOUND EFFECTS
-BALL_HIT_WALL = './sfx/ball_hit_wall.wav'
-BALL_HIT_PADDLE ='./sfx/ball_hit_paddle.wav'
-BALL_HIT_BLOCK = './sfx/ball_hit_block.wav'
+BALL_HIT_WALL = './assets/sfx/ball_hit_wall.wav'
+BALL_HIT_PADDLE ='./assets/sfx/ball_hit_paddle.wav'
+BALL_HIT_BLOCK = './assets/sfx/ball_hit_block.wav'
