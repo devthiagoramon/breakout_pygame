@@ -74,6 +74,8 @@ game_over_subtext_rect = game_over_subtext.get_rect(center=(consts.WINDOW_WIDTH 
 
 # soundeffects
 pygame.mixer.init()
+
+#screen
 screen = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
@@ -118,11 +120,14 @@ def draw_bricks(array_bricks):
                     and array_bricks[i][j]["visible"] and not mec.ball_is_ghost and not game_idle):
                 array_bricks[i][j]["visible"] = False
                 mec.ball_hit_block()
-                pygame.mixer.music.load(consts.BALL_HIT_BLOCK)
                 if array_bricks[i][j]["color"] == consts.YELLOW:
+                    pygame.mixer.music.load(consts.BALL_HIT_BLOCK)
                     pygame.mixer.music.play()
+
                 if array_bricks[i][j]["color"] == consts.GREEN:
-                    pygame.mixer.music.play(loops = 3)
+                    pygame.mixer.music.load(consts.BALL_HIT_GREEN)
+                    pygame.mixer.music.play()
+
                     rebound_speed = increase_speed_based_on_block(array_bricks[i][j]["color"])
                     if mec.ball_dx < 0:
                         mec.ball_dx = -1 * rebound_speed * randun(0.8,1.1)
@@ -131,7 +136,9 @@ def draw_bricks(array_bricks):
                         mec.ball_dx = rebound_speed  * randun(0.8,1.1)
                         mec.ball_dy = rebound_speed  * randun(0.8,1.1)
                 if array_bricks[i][j]["color"] == consts.ORANGE:
-                    pygame.mixer.music.play(loops = 7)
+                    pygame.mixer.music.load(consts.BALL_HIT_ORANGE)
+                    pygame.mixer.music.play()
+
                     rebound_speed = increase_speed_based_on_block(array_bricks[i][j]["color"])
                     if mec.ball_dx < 0:
                         mec.ball_dx = -1 * rebound_speed  * randun(0.8,1.1)
@@ -140,7 +147,8 @@ def draw_bricks(array_bricks):
                         mec.ball_dx = rebound_speed  * randun(0.8,1.1)
                         mec.ball_dy = rebound_speed  * randun(0.8,1.1)
                 if array_bricks[i][j]["color"] == consts.RED:
-                    pygame.mixer.music.play(loops= 11)
+                    pygame.mixer.music.load(consts.BALL_HIT_RED)
+                    pygame.mixer.music.play()
                     rebound_speed = increase_speed_based_on_block(array_bricks[i][j]["color"])
                     if mec.ball_dx < 0:
                         mec.ball_dx = -1 * rebound_speed  * randun(0.8,1.1)
@@ -286,6 +294,8 @@ while True:
         paddle.left -= consts.PADDLE_SPEED
     if key[pygame.K_RIGHT] and paddle.right < consts.WINDOW_WIDTH:
         paddle.right += consts.PADDLE_SPEED
+    if key[pygame.K_s]:
+        pygame.image.save(screen, 'SCREEN_IMAGE.jpg')
 
     # Blocos
 

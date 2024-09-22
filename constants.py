@@ -37,3 +37,6 @@ MAX_BALL_SPEED_LEVEL_4 = 6
 BALL_HIT_WALL = './assets/sfx/ball_hit_wall.wav'
 BALL_HIT_PADDLE = './assets/sfx/ball_hit_paddle.wav'
 BALL_HIT_BLOCK = './assets/sfx/ball_hit_block.wav'
+BALL_HIT_GREEN = './assets/sfx/green_block_hit.mp3'
+BALL_HIT_ORANGE = './assets/sfx/orange_block_hit.mp3'
+BALL_HIT_RED ='./assets/sfx/red_block_hit.mp3'
