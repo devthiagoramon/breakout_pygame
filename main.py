@@ -6,7 +6,7 @@ import constants as consts
 from random import randrange as rand
 from random import uniform as randun
 
-#tes
+#agora simmm
 
 
 from lpc2024.atividade004.breakout_pygame.mechanics import increase_speed_based_on_block
