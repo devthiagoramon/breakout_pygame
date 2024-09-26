@@ -6,6 +6,7 @@ import constants as consts
 from random import randrange as rand
 from random import uniform as randun
 
+#testgit
 
 
 from lpc2024.atividade004.breakout_pygame.mechanics import increase_speed_based_on_block
@@ -296,7 +297,6 @@ while True:
         paddle.right += consts.PADDLE_SPEED
     if key[pygame.K_s]:
         pygame.image.save(screen, 'SCREEN_IMAGE.jpg')
-
     # Blocos
 
     # RED
